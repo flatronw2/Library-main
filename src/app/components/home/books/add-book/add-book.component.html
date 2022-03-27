@@ -1,0 +1,144 @@
+<div class="main">
+    <form
+      action=""
+      class="book-form"
+      [formGroup]="booksForm"
+      (ngSubmit)="onSubmit()"
+      *ngIf="isDataLoaded"
+    >
+      <div class="container">
+        <div class="book-data">
+          <mat-form-field class="width" appearance="fill">
+            <mat-label>Book title</mat-label>
+            <input matInput type="text" formControlName="title" />
+          </mat-form-field>
+          <mat-form-field class="width" appearance="fill">
+            <mat-label>Year of creation</mat-label>
+            <input matInput type="text" formControlName="dateOfCreation" />
+          </mat-form-field>
+          <mat-form-field class="width" appearance="fill">
+            <mat-label>Image URL</mat-label>
+            <input matInput type="text" formControlName="image" />
+          </mat-form-field>
+        </div>
+        <div class="genres">
+          <mat-form-field appearance="fill">
+            <mat-label>Genres</mat-label>
+            <mat-select formControlName="genres" multiple>
+              <mat-option
+                *ngFor="let genreType of genresTypes"
+                [value]="genreType"
+                (click)="optionClick()"
+                >{{ genres[genreType] }}</mat-option
+              >
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="description">
+        <mat-form-field class="description-width" appearance="fill">
+          <mat-label>Description</mat-label>
+          <textarea
+            matInput
+            formControlName="description"
+            [(ngModel)]="desc"
+          ></textarea>
+          <mat-error *ngIf="description?.errors?.['maxlength']"
+            >Maximum length is 500!</mat-error
+          >
+          <div class="count-div">
+            <div *ngIf="desc.length" class="count-text">
+              You entered {{ desc.length }}/500 characters.
+            </div>
+          </div>
+        </mat-form-field>
+      </div>
+  
+      <div class="table-writters">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+          <ng-container matColumnDef="select">
+            <th mat-header-cell *matHeaderCellDef>
+              <mat-checkbox
+                (change)="$event ? masterToggle() : null"
+                [checked]="selectionOfCelebrity.hasValue() && isAllSelected()"
+                [indeterminate]="
+                  selectionOfCelebrity.hasValue() && !isAllSelected()
+                "
+              >
+              </mat-checkbox>
+            </th>
+            <td mat-cell *matCellDef="let row">
+              <mat-checkbox
+                (click)="$event.stopPropagation()"
+                (change)="$event ? selectionOfCelebrity.toggle(row) : null"
+                [checked]="selectionOfCelebrity.isSelected(row)"
+              >
+              </mat-checkbox>
+            </td>
+          </ng-container>
+  
+          <ng-container matColumnDef="fullName">
+            <th mat-header-cell *matHeaderCellDef>Writters</th>
+            <td mat-cell *matCellDef="let element">{{ element.fullName }}</td>
+          </ng-container>
+  
+          <ng-container matColumnDef="filter">
+            <th mat-header-cell *matHeaderCellDef>
+              <mat-form-field class="filter-width" appearance="standard">
+                <mat-label
+                  ><mat-icon color="primary">search</mat-icon>Search</mat-label
+                >
+                <input matInput (keyup)="applyFilter($event)" #input />
+              </mat-form-field>
+            </th>
+            <td mat-cell *matCellDef="let element">{{ element.filter }}</td>
+          </ng-container>
+  
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr
+            mat-row
+            *matRowDef="let row; columns: displayedColumns"
+            (click)="selectionOfCelebrity.toggle(row)"
+          ></tr>
+        </table>
+        <mat-paginator
+          [pageSizeOptions]="[5, 10, 20]"
+          showFirstLastButtons
+          aria-label=""
+        >
+        </mat-paginator>
+      </div>
+  
+      <div class="buttons">
+        <button
+          class="cancel-button"
+          mat-raised-button
+          color="warn"
+          type="button"
+          (click)="backClicked()"
+        >
+          CANCEL
+        </button>
+        <button
+          class="confirm-button"
+          *ngIf="!isEditMode"
+          mat-raised-button
+          color="primary"
+          type="submit"
+          [disabled]="booksForm.invalid"
+        >
+          CONFIRM
+        </button>
+        <button
+          class="confirm-button"
+          *ngIf="isEditMode"
+          mat-raised-button
+          color="primary"
+          type="submit"
+        >
+          UPDATE
+        </button>
+      </div>
+    </form>
+  </div>
+  

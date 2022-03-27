@@ -1,0 +1,19 @@
+<app-writter-item
+    *ngFor="let writter of writters | slice: lowValue:highValue" 
+    [writter]="writter">
+</app-writter-item>
+
+<div *ngIf="writters.length == 0">
+    <h3 style="color: red;"> No data found!</h3>
+</div>
+
+<div></div>
+
+<div class="pagination-wrap">
+  <mat-paginator
+    [length]="this.writters.length"
+    [pageSize]="pageSize"
+    (page)="getPaginatorData($event)"
+  >
+  </mat-paginator>
+</div>

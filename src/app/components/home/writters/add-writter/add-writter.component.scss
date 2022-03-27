@@ -1,0 +1,32 @@
+.form{
+    padding: 80px;
+    background-color: chocolate;
+
+    table{
+      width: 100%;
+    }
+    .container{
+      display: grid;
+      background: bisque;
+
+      .width{
+        width: 35%;
+      }
+    }
+    mat-label{
+        color: black;
+      }
+    mat-icon {
+        font-weight: bold;
+        margin-right: 10px;
+        color: black;
+      }
+    .buttons {
+      display: flex;
+      justify-content: end;
+      padding: 50px;
+      .cancel-button {
+        margin-right: 20px;
+      }
+    }
+  }

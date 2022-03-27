@@ -1,0 +1,18 @@
+:host{
+    .writter-item{
+            width: 100%;
+            h1{
+              cursor: pointer;
+            }
+    }
+      .picture{
+        height: 185px;
+        width: 100%;
+      }
+  
+      #photo {
+        object-fit: cover;
+      }
+    
+  }
+  

@@ -1,0 +1,5 @@
+<div class="book-item">
+    <img id="photo" class="picture" [src]="book.image" alt="logo" />
+    <h1 [routerLink]="'/books/all-books/book-description/' + book.id" >{{book.title | uppercase}}</h1>
+    <p class="description">{{ ( book.description | slice:0:120 ) + (book.description.length > 120? '...' : '' ) }}</p>
+</div>

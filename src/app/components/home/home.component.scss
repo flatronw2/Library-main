@@ -1,0 +1,102 @@
+app-book-item-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 20px;
+}
+app-writter-one-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 20px;
+}
+
+.btn-sorted {
+  font-size: 12px;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+  background-color: transparent;
+  color: #000;
+  padding-top: 20px;
+}
+
+.sorted-books {
+  justify-content: right;
+  display: flex;
+}
+
+.bottom {
+  padding-bottom: 45px;
+}
+.carousel-cell {
+  position: relative;
+  text-align: center;
+  .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    font-weight: bold;
+    font-size: 32px;
+    color: #ffffff;
+  }
+}
+
+.book {
+  .heading-top {
+    margin-top: 20px;
+  }
+
+  .heading {
+    margin-top: 20px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .carousel-cell {
+    .centered {
+      font-size: 72px;
+      line-height: 98px;
+    }
+  }
+  app-book-item-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+  }
+  app-writter-one-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .heading-top {
+    padding-top: 30px;
+  }
+  app-book-item-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 30px;
+  }
+
+  app-writter-one-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 30px;
+  }
+
+  .padding {
+    padding: 0px 80px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    .heading-top {
+      padding-top: 30px;
+    }
+ 
+
+    .padding {
+      padding: 0px 80px;
+    }
+  }
+}

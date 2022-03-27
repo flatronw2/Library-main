@@ -1,0 +1,41 @@
+<div class="padding">
+  <carousel
+    [objectFit]="'cover'"
+    [cellWidth]="'100%'"
+    [height]="380"
+    [autoplay]="true"
+    [dots]="true"
+    [loop]="true"
+  >
+    <div class="carousel-cell" *ngFor="let book of books">
+      <div class="centered">{{ book.title | uppercase }}</div>
+      <app-book-item [book]="book"></app-book-item>
+    </div>
+  </carousel>
+
+  <div class="book">
+    <h1 class="heading">The newest books</h1>
+    <app-book-item-grid
+      [bookNumber]="4"
+      sortBy="dateOfCreation"
+    ></app-book-item-grid>
+    <div class="sorted-books">
+      <button class="btn-sorted bottom" routerLink="/books/newest">
+        See all books sorted by date
+      </button>
+    </div>
+  </div>
+
+  <div class="book">
+    <h1 class="heading">The newest writters</h1>
+    <app-writter-one-grid
+      [writterNumber]="4"
+      sortBy="fullName"
+    ></app-writter-one-grid>
+    <div class="sorted-books">
+      <button class="btn-sorted bottom" routerLink="/writters/all-writt">
+        See all writters
+      </button>
+    </div>
+  </div>
+</div>

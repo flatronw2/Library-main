@@ -1,0 +1,61 @@
+:host {
+    .movie-item {
+      position: relative;
+      display: flex;
+      justify-content: end;
+      width: 100%;
+  
+      .picture {
+        height: 400px;
+        width: 100%;
+      }
+  
+      .buttons {
+        position: absolute;
+        display: flex;
+        bottom: 15px;
+        right: 25px;
+        .edit {
+          display: none;
+          background-color: #c4c4c4;
+          margin-right: 8px;
+        }
+  
+        .delete {
+          color: red;
+          display: none;
+          background-color: #c4c4c4;
+        }
+      }
+  
+      #photo {
+        object-fit: cover;
+      }
+    }
+  
+    .movie-item:hover .buttons .edit {
+      display: block;
+    }
+  
+    .movie-item:hover .buttons .delete {
+      display: block;
+    }
+  
+    .movie-item:hover img {
+      filter: brightness(50%);
+    }
+  
+    .title {
+      margin-top: 20px;
+      h1 {
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 33px;
+        text-align: center;
+        cursor: pointer;
+      }
+    }
+  }
+  

@@ -1,0 +1,37 @@
+<div class="book-description">
+    <div class="title">
+      <h1>{{ book.title }} - ({{ book.dateOfCreation }})</h1>
+    </div>
+  
+    <div class="genre">
+      <p>{{ book.genres }}</p>
+    </div>
+  
+    <div class="image">
+      <img id="photo" class="picture" [src]="book.image" alt="logo" />
+    </div>
+  
+    <div class="description">
+      <p>
+        {{
+            book.description
+            ? (book.description | slice: 0:counter) + '...'
+            : book.description
+        }}
+        <span
+          class="redTxt"
+          *ngIf="book.description.length > 200"
+          (click)="toggleSkil()"
+        >
+          {{ showTxt }}
+        </span>
+      </p>
+    </div>
+    <div class="writters">
+      <div *ngFor="let writter of book.writters" class="writter">
+        <img id="photo" class="picture" [src]="writter.image" alt="logo" />
+        <p>{{ writter.fullName }}</p>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,79 @@
+<div class="form">
+    <form action="" class="writter-form" [formGroup]="writterForm" (ngSubmit)="onSubmit()" *ngIf="isDataLoaded">
+      <div class="container">
+        <mat-form-field class="width" appearance="fill">
+          <mat-label>Image URL</mat-label>
+          <input matInput type="text" formControlName="image" />
+        </mat-form-field>
+        <mat-form-field class="width" appearance="fill">
+          <mat-label>Fullname</mat-label>
+          <input matInput type="text" formControlName="fullName" />
+        </mat-form-field>
+        <mat-form-field class="width" appearance="fill">
+          <mat-label>Birthday</mat-label>
+          <input matInput type="text" formControlName="birthday" />
+        </mat-form-field>
+      </div>
+  
+      <div class="table">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  
+          <ng-container matColumnDef="select">
+            <th mat-header-cell *matHeaderCellDef>
+              <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && isAllSelected()"
+                [indeterminate]="selection.hasValue() && !isAllSelected()" [aria-label]="checkboxLabel()">
+              </mat-checkbox>
+            </th>
+            <td mat-cell *matCellDef="let row">
+              <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null"
+                [checked]="selection.isSelected(row)" [aria-label]="checkboxLabel(row)">
+              </mat-checkbox>
+            </td>
+          </ng-container>
+  
+          <ng-container matColumnDef="title">
+            <th mat-header-cell *matHeaderCellDef style="font-size: large;"> BOOKS </th>
+            <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+          </ng-container>
+  
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)">
+          </tr>
+        </table>
+  
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="">
+        </mat-paginator>
+      </div>
+      <div class="buttons">
+        <button 
+          class="cancel-button" 
+          (click)="cancel()" 
+          mat-raised-button 
+          color="warn" 
+          type="button"
+        >
+          CANCEL
+        </button>
+        <button
+          class="confirm-button" 
+          *ngIf="!isEditMode"
+          type="submit" 
+          mat-raised-button 
+          color="primary"
+          [disabled]="writterForm.invalid"
+
+        >
+          CONFIRM
+        </button>
+        <button 
+          class="confirm-button"
+          *ngIf="isEditMode" 
+          mat-raised-button 
+          color="primary" 
+          type="submit"
+        >
+          UPDATE
+        </button>
+      </div>
+    </form>
+  </div>

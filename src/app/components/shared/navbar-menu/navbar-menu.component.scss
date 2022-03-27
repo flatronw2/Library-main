@@ -1,0 +1,106 @@
+:host {
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 80px;
+    .buttonX {
+      background: none;
+      border: none;
+      font-size: 30px;
+      cursor: pointer;
+    }
+
+    .app-logo{
+
+      cursor: pointer;
+    }
+  }
+  .menu {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 50px;
+    padding: 20px;
+
+    a {
+      display: flex;
+      cursor: pointer;
+      font-size: 30px;
+      text-decoration: none;
+      border: none;
+      background-color: transparent;
+      color: #e08002;
+      margin-bottom: 20px;
+    }
+    p {
+      cursor: pointer;
+      list-style-type: none;
+      font-size: 16px;
+      line-height: 12px;
+      color: #000000;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .menu {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 80px;
+      padding: 20px;
+
+      a {
+        display: flex;
+        cursor: pointer;
+        font-size: 30px;
+        text-decoration: none;
+        border: none;
+        background-color: transparent;
+        color: #e08002;
+        margin-bottom: 20px;
+      }
+      p {
+        cursor: pointer;
+        list-style-type: none;
+        font-size: 16px;
+        line-height: 12px;
+        color: #000000;
+      }
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    .menu {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 120px;
+      padding: 80px;
+
+      a {
+        display: flex;
+        cursor: pointer;
+        font-size: 30px;
+        text-decoration: none;
+        border: none;
+        background-color: transparent;
+        color: #e08002;
+        margin-bottom: 20px;
+      }
+      p {
+        cursor: pointer;
+        list-style-type: none;
+        font-size: 16px;
+        line-height: 12px;
+        color: #000000;
+      }
+    }
+  }
+
+  .hamburgerBtn {
+    border: none;
+    background-color: transparent;
+    box-shadow: none;
+  }
+  
+}

@@ -1,0 +1,30 @@
+:host{
+    .book-item{
+            width: 100%;
+            h1{
+              cursor: pointer;
+            }
+            p{
+              word-break:break-all;
+          }
+    }
+      .picture{
+        height: 85px;
+        width: 100%;
+      }
+  
+      #photo {
+        object-fit: cover;
+      }
+    
+    .picture {
+      height: 85px;
+      width: 100%;
+    }
+  
+    .description {
+      width: 305px;
+      word-wrap: break-word;
+    }
+  }
+  

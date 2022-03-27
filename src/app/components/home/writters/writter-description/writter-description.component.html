@@ -1,0 +1,17 @@
+<div class="writter-description">
+    <div class="title">
+      <h1>{{ writter.fullName }} - ({{ writter.birthday }})</h1>
+    </div>
+  
+    <div class="image">
+      <img id="photo" class="picture" [src]="writter.image" alt="logo" />
+    </div>
+
+    <div class="books">
+      <div *ngFor="let book of writter.books" class="writter">
+        <img id="photo" class="picture" [src]="book.image" alt="logo" />
+        <p>{{ book.title }}</p>
+      </div>
+    </div>
+</div>
+  

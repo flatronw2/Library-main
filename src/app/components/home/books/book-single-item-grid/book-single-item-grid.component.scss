@@ -1,0 +1,12 @@
+:host {
+    ::ng-deep .mat-paginator-container {
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+  
+      .mat-paginator-page-size {
+        display: none;
+      }
+    }
+  }
+  

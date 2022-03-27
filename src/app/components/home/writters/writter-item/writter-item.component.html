@@ -1,0 +1,29 @@
+<div class="writter-item">
+    <a [routerLink]="'/writters/all-writters/writter-description/' + writter.id">
+        <img id="photo" class="picture" [src]="writter.image" alt="" />
+    </a>
+    <div class="buttons">
+    <button
+      mat-icon-button
+      class="edit"
+      color="primary"
+      aria-label="update"
+      (click)="onEdit()"
+    >
+      <mat-icon color="primary">edit</mat-icon>
+    </button>
+    <button
+      mat-icon-button
+      class="delete"
+      color="warn"
+      aria-label="update"
+      (click)="onDelete(writter.id)"
+    >
+      <mat-icon color="warn">close</mat-icon>
+    </button>
+  </div>
+  </div>
+  <div [routerLink]="'/writters/all-writters/writter-description/' + writter.id" class="fullName">
+    <h1> {{ writter.fullName }}</h1>
+  </div>
+  

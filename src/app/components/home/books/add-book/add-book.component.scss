@@ -1,0 +1,148 @@
+:host {
+  .main {
+    .book-form{
+      background-color: chocolate;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      background: bisque;
+      .book-data {
+        display: flex;
+        flex-direction: column;
+        margin: 60px 25px 0 25px;
+      }
+
+      .genres {
+        margin: 0 25px 25px 25px;
+      }
+    }
+    mat-label{
+      color: black;
+    }
+    .description {
+      margin: 0 25px;
+      .description-width {
+        width: 100%;
+      }
+
+      .count-text {
+        padding-top: 20px;
+      }
+    }
+
+    .table-writters {
+      margin: 30px 0;
+
+      table {
+        width: 100%;
+
+        .filter-width {
+          width: 50px;
+        }
+      }
+    }
+
+    button[disabled] {
+      background-color: rgb(5, 44, 5);
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+
+      .cancel-button {
+        margin-right: 10px;
+        border-radius: 30px;
+      }
+
+      .confirm-button {
+        border-radius: 30px;
+      }
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .main {
+      .container {
+        display: flex;
+        flex-direction: row;
+
+        .book-data {
+          display: flex;
+          flex-direction: column;
+          margin: 60px 25px 0 25px;
+          width: 328px;
+        }
+
+        .genres {
+          margin: 60px 25px 0 25px;
+        }
+      }
+      .buttons {
+        display: flex;
+        justify-content: end;
+        margin-right: 20px;
+
+        .cancel-button {
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    .main {
+      .container {
+        display: flex;
+        flex-direction: row;
+
+        .book-data {
+          display: flex;
+          flex-direction: column;
+          margin: 60px 25px 20px 80px;
+          width: 328px;
+        }
+
+        .genres {
+          margin: 60px 0;
+        }
+      }
+      .description {
+        margin: 0 80px;
+      }
+
+      .table-writters {
+        margin: 30px 80px;
+
+        table {
+          width: 100%;
+
+          .cdk-column-filter {
+            width: 20%;
+          }
+
+          .filter-width {
+            width: 240px;
+          }
+
+          mat-icon {
+            font-weight: bold;
+            margin-right: 10px;
+            color: black;
+          }
+        }
+      }
+
+      .buttons {
+        display: flex;
+        justify-content: end;
+        margin-right: 100px;
+
+        .cancel-button {
+          margin-right: 20px;
+        }
+      }
+    }
+  }
+}

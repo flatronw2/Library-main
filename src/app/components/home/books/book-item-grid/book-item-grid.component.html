@@ -1,0 +1,5 @@
+<app-book-item *ngFor="let book of books" [book]="book"></app-book-item>
+
+<div *ngIf="books.length == 0">
+    <h3> No data found!</h3>
+</div>

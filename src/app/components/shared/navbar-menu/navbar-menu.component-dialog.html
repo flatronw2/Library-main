@@ -1,0 +1,20 @@
+<div class="nav">
+  <div class="app-logo" mat-dialog-close mat-dialog-content>
+    <img src="" alt="logo" routerLink="/home" />
+  </div>
+  <div mat-dialog-actions>
+    <button class="buttonX" mat-button (click)="onNoClick()">X</button>
+  </div>
+</div>
+<div mat-dialog-close class="menu">
+  <div class="books">
+    <a routerLink="/books">Books</a>
+    <p routerLink="/books/all">All</p>
+    <p routerLink="/books/newest">Newest</p>
+  </div>
+
+  <div class="writters">
+    <a routerLink="/writters">Writter</a>
+    <p routerLink="/writters/all-writt">All</p>
+  </div>
+</div>

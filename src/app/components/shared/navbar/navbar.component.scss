@@ -1,0 +1,15 @@
+:host {
+  .mat {
+    height: 64px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0px 80px;
+    align-items: center;
+
+    .logo,
+    .menu {
+      cursor: pointer;
+    }
+  }
+}

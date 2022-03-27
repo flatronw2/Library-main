@@ -1,0 +1,19 @@
+<app-book-single-item
+  *ngFor="let book of books | slice: lowValue:highValue"
+  [book]="book"
+></app-book-single-item>
+
+<div *ngIf="books.length == 0">
+  <h3>No data found!</h3>
+</div>
+
+<div></div>
+
+<div class="pagination-wrap">
+  <mat-paginator
+    [length]="this.books.length"
+    [pageSize]="pageSize"
+    (page)="getPaginatorData($event)"
+  >
+  </mat-paginator>
+</div>

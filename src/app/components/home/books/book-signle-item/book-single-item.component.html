@@ -1,0 +1,28 @@
+<div class="movie-item">
+    <img id="photo" class="picture" [src]="book.image" alt="logo" />
+    <div class="buttons">
+      <button
+        mat-icon-button
+        class="edit"
+        color="primary"
+        aria-label="update"
+        (click)="onEdit()"
+      >
+        <mat-icon color="primary">edit</mat-icon>
+      </button>
+      <button
+        mat-icon-button
+        class="delete"
+        color="warn"
+        aria-label="delete"
+        (click)="onDelete(book.id)"
+      >
+        <mat-icon color="warn">close</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div class="title">
+    <h1 [routerLink]="'/books/all-books/book-description/' + book.id">
+      {{ book.title }} - {{ book.dateOfCreation }}
+    </h1>
+  </div>
